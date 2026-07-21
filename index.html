@@ -15,8 +15,11 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    height: 2000px;
     background: #0f172a;
     color: white;
     overflow-x: hidden;
@@ -102,6 +105,7 @@ ul li a:hover {
     text-align: center;
     padding: 0 20px;
     background: radial-gradient(circle at top, #1e293b, #0f172a);
+    margin-top: 0;
 }
 
 .hero h1 {
@@ -117,6 +121,43 @@ ul li a:hover {
     margin-top: 15px;
     color: #cbd5e1;
     font-size: 18px;
+}
+
+/* SECTIONS */
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 50px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+section p {
+    font-size: 18px;
+    color: #cbd5e1;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+#features {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+#services {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+#contact {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
 /* BUTTON */
@@ -169,6 +210,14 @@ ul li a:hover {
     .hero h1 {
         font-size: 40px;
     }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    section h2 {
+        font-size: 35px;
+    }
 }
 
 /* ANIMATION */
@@ -193,18 +242,40 @@ ul li a:hover {
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <ul id="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
-<section class="hero">
+<section id="home" class="hero">
     <div>
         <h1>Build Elegant Web Experiences</h1>
         <p>Modern UI • Smooth Animations • Clean Design</p>
         <button class="btn">Get Started</button>
+    </div>
+</section>
+
+<section id="features">
+    <div>
+        <h2>Features</h2>
+        <p>Discover the powerful features that make our platform stand out. From responsive design to smooth animations, we've got everything you need to create stunning web experiences.</p>
+    </div>
+</section>
+
+<section id="services">
+    <div>
+        <h2>Services</h2>
+        <p>We provide comprehensive web development services tailored to your needs. Our expert team is ready to help you build, design, and launch your next big project.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <div>
+        <h2>Contact</h2>
+        <p>Get in touch with us today! We're here to answer any questions and help you get started on your journey to building elegant web experiences.</p>
+        <button class="btn">Send Message</button>
     </div>
 </section>
 
@@ -217,6 +288,13 @@ window.addEventListener("scroll", function () {
 function toggleMenu() {
     document.getElementById("menu").classList.toggle("show");
 }
+
+// Close menu when a link is clicked
+document.querySelectorAll('#menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        document.getElementById("menu").classList.remove("show");
+    });
+});
 </script>
 
 </body>
